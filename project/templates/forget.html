@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>send mail</title>
+</head>
+<body>
+
+{{error}}
+<form method="post" action="http://127.0.0.1:8000/sendmail/">
+    {%csrf_token%}
+    Enter Email<input type="email" id="em" name="em">
+    <button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>
