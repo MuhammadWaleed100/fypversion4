@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+   <head>
+    <title>Skills Based Employee Recommender System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{%static 'css/open-iconic-bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/animate.css'%}">
+
+    <link rel="stylesheet" href="{%static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/owl.theme.default.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/magnific-popup.css'%}">
+
+    <link rel="stylesheet" href="{%static 'css/aos.css'%}">
+
+    <link rel="stylesheet" href="{%static 'css/ionicons.min.css'%}">
+
+    <link rel="stylesheet" href="{%static 'css/bootstrap-datepicker.css'%}">
+    <link rel="stylesheet" href="{%static 'css/jquery.timepicker.css'%}">
+
+
+    <link rel="stylesheet" href="{%static 'css/flaticon.css'%}">
+    <link rel="stylesheet" href="{%static 'css/icomoon.css'%}">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+  </head>
+  <body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container-fluid px-md-4	">
+	      <a class="navbar-brand" href="index.html">Skills Based Employee Recommender System</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+	          <li class="nav-item cta mr-md-1"><a href="/login" class="nav-link">Logout</a></li>
+	          <!--<li class="nav-item cta cta-colored"><a href="/login" class="nav-link">Want a Job</a></li>-->
+
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+
+    <div class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+          <div class="col-md-12 ftco-animate text-center mb-5">
+          	<p class="breadcrumbs mb-0"><span class="mr-3"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Job Post</span></p>
+            <h1 class="mb-3 bread">Post A Job</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <section class="ftco-section contact-section bg-light">
+      <div class="container" >
+        <div class="row block-9">
+          <div class="col-md-6 order-md-last d-flex"  style="margin-left:25%">
+            <form action="http://127.0.0.1:8000/profile/" class="bg-white p-5 contact-form" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Job Title" name="jobtitle">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Job Description" name="jobdescription">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="What skills are required for this job?" name="skills">
+              </div>
+                <div class="form-group">
+                  <select  class="form-control" id="careerLevel"  data-live-search="true" name="careerLevel" onchange="jobMatchingCandidates('count');" >
+                                                                <option value="">Choose career level</option>
+                                                                                                                                    <option value="685" >Intern/Student</option>
+                                                                                                                                    <option value="868" >Entry Level</option>
+                                                                                                                                    <option value="693" >Experienced Professional</option>
+                                                                                                                                    <option value="698" >Department Head</option>
+                                                                                                                                    <option value="697" >GM / CEO / Country Head / President</option>
+
+                                                            </select>
+              </div>
+
+              <div class="form-group">
+                  <select class="form-control" id="totalPosition" autocomplete="off" name="totalPosition" >
+                    <option value="">No. of Positions</option>
+
+                                                                <option value="1" >1</option>
+
+
+                                                                <option value="2" >2</option>
+
+
+                                                                <option value="3" >3</option>
+
+
+                                                                <option value="4" >4</option>
+
+
+                                                                <option value="5" >5</option>
+
+
+                                                                <option value="6" >6</option>
+
+
+                                                                <option value="7" >7</option>
+
+
+                                                                <option value="8" >8</option>
+
+
+                                                                <option value="9" >9</option>
+
+
+                                                                <option value="10" >10</option>
+
+
+                                                                <option value="11" >11</option>
+
+
+                                                                <option value="12" >12</option>
+
+
+                                                                <option value="13" >13</option>
+
+
+                                                                <option value="14" >14</option>
+
+
+                                                                <option value="15" >15</option>
+
+
+                                                                <option value="16" >16</option>
+
+
+                                                                <option value="17" >17</option>
+
+
+                                                                <option value="18" >18</option>
+
+
+                                                                <option value="19" >19</option>
+
+
+                                                                <option value="20" >20</option>
+
+
+                                                                <option value="21" >21</option>
+
+
+                                                                <option value="22" >22</option>
+
+
+                                                                <option value="23" >23</option>
+
+
+                                                                <option value="24" >24</option>
+
+
+                                                                <option value="25" >25</option>
+
+
+                                                                <option value="26" >26</option>
+
+
+                                                                <option value="27" >27</option>
+
+
+                                                                <option value="28" >28</option>
+
+
+                                                                <option value="29" >29</option>
+
+
+                                                                <option value="30" >30</option>
+
+
+                                                                <option value="31" >31</option>
+
+
+                                                                <option value="32" >32</option>
+
+
+                                                                <option value="33" >33</option>
+
+
+                                                                <option value="34" >34</option>
+
+
+                                                                <option value="35" >35</option>
+
+
+                                                            <option value="35+">35+</option>
+                                                        </select>
+              </div>
+
+              <div class="form-group">
+                  <select class="form-control" id="country" autocomplete="off" name="country" >
+                                                    <option value="">Which country is this job for?</option>
+
+
+
+                                                                                                                <option value="1"  >Afghanistan</option>
+
+
+                                                                                                                <option value="2"  >Albania</option>
+
+
+                                                                                                                <option value="3"  >Algeria</option>
+
+
+                                                                                                                <option value="187"  >Angola</option>
+
+
+                                                                                                                <option value="4"  >Antigua</option>
+
+
+                                                                                                                <option value="5"  >Argentina</option>
+
+
+                                                                                                                <option value="6"  >Australia</option>
+
+
+                                                                                                                <option value="115"  >Austria</option>
+
+
+                                                                                                                <option value="7"  >Azerbaijan</option>
+
+
+                                                                                                                <option value="8"  >Bahrain</option>
+
+
+                                                                                                                <option value="9"  >Bangladesh</option>
+
+
+                                                                                                                <option value="10"  >Barbados</option>
+
+
+                                                                                                                <option value="188"  >Barbuda</option>
+
+
+                                                                                                                <option value="193"  >Belarus</option>
+
+
+                                                                                                                <option value="11"  >Belgium</option>
+
+
+                                                                                                                <option value="113"  >Belize</option>
+
+
+                                                                                                                <option value="215"  >Bosnia</option>
+
+
+                                                                                                                <option value="13"  >Botswana</option>
+
+
+                                                                                                                <option value="14"  >Brazil</option>
+
+
+                                                                                                                <option value="15"  >Brunei</option>
+
+
+                                                                                                                <option value="16"  >Bulgaria</option>
+
+
+                                                                                                                <option value="17"  >Burma</option>
+
+
+                                                                                                                <option value="233"  >Burundi</option>
+
+
+                                                                                                                <option value="222"  >Cambodia</option>
+
+
+                                                                                                                <option value="18"  >Cameroon</option>
+
+
+                                                                                                                <option value="116"  >Canada</option>
+
+
+                                                                                                                <option value="19"  >Chad</option>
+
+
+                                                                                                                <option value="20"  >Chechnya</option>
+
+
+                                                                                                                <option value="21"  >Chile</option>
+
+
+                                                                                                                <option value="22"  >China</option>
+
+
+                                                                                                                <option value="24"  >Colombia</option>
+
+
+                                                                                                                <option value="25"  >Congo</option>
+
+
+                                                                                                                <option value="196"  >Costa Rica</option>
+
+
+                                                                                                                <option value="26"  >Croatia</option>
+
+
+                                                                                                                <option value="198"  >Cuba</option>
+
+
+                                                                                                                <option value="27"  >Cyprus</option>
+
+
+                                                                                                                <option value="217"  >Czech Rep</option>
+
+
+                                                                                                                <option value="194"  >Democratic Republic of the Congo</option>
+
+
+                                                                                                                <option value="29"  >Denmark</option>
+
+
+                                                                                                                <option value="192"  >Djibouti</option>
+
+
+                                                                                                                <option value="201"  >Dominican Republic</option>
+
+
+                                                                                                                <option value="177"  >East Timor</option>
+
+
+                                                                                                                <option value="30"  >Egypt</option>
+
+
+                                                                                                                <option value="31"  >Eritrea</option>
+
+
+                                                                                                                <option value="151"  >Estonia</option>
+
+
+                                                                                                                <option value="32"  >Ethiopia</option>
+
+
+                                                                                                                <option value="33"  >Fiji</option>
+
+
+                                                                                                                <option value="34"  >Finland</option>
+
+
+                                                                                                                <option value="35"  >France</option>
+
+
+                                                                                                                <option value="36"  >Gambia</option>
+
+
+                                                                                                                <option value="142"  >Georgia</option>
+
+
+                                                                                                                <option value="37"  >Germany</option>
+
+
+                                                                                                                <option value="38"  >Ghana</option>
+
+
+                                                                                                                <option value="228"  >Gibraltar</option>
+
+
+                                                                                                                <option value="39"  >Greece</option>
+
+
+                                                                                                                <option value="40"  >Guinea</option>
+
+
+                                                                                                                <option value="146"  >Haiti</option>
+
+
+                                                                                                                <option value="41"  >Hong Kong</option>
+
+
+                                                                                                                <option value="42"  >Hungary</option>
+
+
+                                                                                                                <option value="43"  >Iceland</option>
+
+
+                                                                                                                <option value="44"  >India</option>
+
+
+                                                                                                                <option value="45"  >Indonesia</option>
+
+
+                                                                                                                <option value="46"  >Iran</option>
+
+
+                                                                                                                <option value="47"  >Iraq</option>
+
+
+                                                                                                                <option value="48"  >Ireland</option>
+
+
+                                                                                                                <option value="50"  >Italy</option>
+
+
+                                                                                                                <option value="51"  >Jamaica</option>
+
+
+                                                                                                                <option value="52"  >Japan</option>
+
+
+                                                                                                                <option value="53"  >Jordan</option>
+
+
+                                                                                                                <option value="54"  >Kazakhstan</option>
+
+
+                                                                                                                <option value="55"  >Kenya</option>
+
+
+                                                                                                                <option value="56"  >Kosovo</option>
+
+
+                                                                                                                <option value="57"  >Kuwait</option>
+
+
+                                                                                                                <option value="58"  >Kyrgyzstan</option>
+
+
+                                                                                                                <option value="117"  >Lao Peoples Democratic Republic</option>
+
+
+                                                                                                                <option value="128"  >Latvia</option>
+
+
+                                                                                                                <option value="59"  >Lebanon</option>
+
+
+                                                                                                                <option value="118"  >Liberia</option>
+
+
+                                                                                                                <option value="60"  >Libya</option>
+
+
+                                                                                                                <option value="231"  >Luxembourg</option>
+
+
+                                                                                                                <option value="61"  >Madagascar</option>
+
+
+                                                                                                                <option value="62"  >Malawi</option>
+
+
+                                                                                                                <option value="63"  >Malaysia</option>
+
+
+                                                                                                                <option value="122"  >Maldives</option>
+
+
+                                                                                                                <option value="64"  >Mali</option>
+
+
+                                                                                                                <option value="65"  >Malta</option>
+
+
+                                                                                                                <option value="66"  >Mauritania</option>
+
+
+                                                                                                                <option value="67"  >Mauritius</option>
+
+
+                                                                                                                <option value="68"  >Mexico</option>
+
+
+                                                                                                                <option value="69"  >Morocco</option>
+
+
+                                                                                                                <option value="70"  >Mozambique</option>
+
+
+                                                                                                                <option value="71"  >Nepal</option>
+
+
+                                                                                                                <option value="72"  >Netherlands</option>
+
+
+                                                                                                                <option value="73"  >New Zealand</option>
+
+
+                                                                                                                <option value="74"  >Niger</option>
+
+
+                                                                                                                <option value="75"  >Nigeria</option>
+
+
+                                                                                                                <option value="76"  >Norway</option>
+
+
+                                                                                                                <option value="77"  >Oman</option>
+
+
+                                                                                                                <option value="79" selected >Pakistan</option>
+
+
+                                                                                                                <option value="78"  >Palestine</option>
+
+
+                                                                                                                <option value="173"  >Papua New Guinea</option>
+
+
+                                                                                                                <option value="80"  >Peru</option>
+
+
+                                                                                                                <option value="81"  >Philippines</option>
+
+
+                                                                                                                <option value="82"  >Poland</option>
+
+
+                                                                                                                <option value="83"  >Portugal</option>
+
+
+                                                                                                                <option value="230"  >Puerto Rico</option>
+
+
+                                                                                                                <option value="84"  >Qatar</option>
+
+
+                                                                                                                <option value="158"  >Romania</option>
+
+
+                                                                                                                <option value="85"  >Russia</option>
+
+
+                                                                                                                <option value="121"  >Rwanda</option>
+
+
+                                                                                                                <option value="86"  >Saudi Arabia</option>
+
+
+                                                                                                                <option value="87"  >Senegal</option>
+
+
+                                                                                                                <option value="224"  >Serbia</option>
+
+
+                                                                                                                <option value="88"  >Sierra Leone</option>
+
+
+                                                                                                                <option value="89"  >Singapore</option>
+
+
+                                                                                                                <option value="165"  >Slovakia</option>
+
+
+                                                                                                                <option value="90"  >Slovenia</option>
+
+
+                                                                                                                <option value="229"  >Solomon Islands</option>
+
+
+                                                                                                                <option value="91"  >Somalia</option>
+
+
+                                                                                                                <option value="92"  >South Africa</option>
+
+
+                                                                                                                <option value="232"  >South Georgia</option>
+
+
+                                                                                                                <option value="219"  >South Korea</option>
+
+
+                                                                                                                <option value="220"  >South Sudan</option>
+
+
+                                                                                                                <option value="94"  >Spain</option>
+
+
+                                                                                                                <option value="95"  >Sri Lanka</option>
+
+
+                                                                                                                <option value="96"  >Sudan</option>
+
+
+                                                                                                                <option value="234"  >Svalbard</option>
+
+
+                                                                                                                <option value="97"  >Sweden</option>
+
+
+                                                                                                                <option value="98"  >Switzerland</option>
+
+
+                                                                                                                <option value="99"  >Syria</option>
+
+
+                                                                                                                <option value="101"  >Taiwan</option>
+
+
+                                                                                                                <option value="100"  >Tajikistan</option>
+
+
+                                                                                                                <option value="102"  >Tanzania</option>
+
+
+                                                                                                                <option value="103"  >Thailand</option>
+
+
+                                                                                                                <option value="104"  >Tunisia</option>
+
+
+                                                                                                                <option value="105"  >Turkey</option>
+
+
+                                                                                                                <option value="106"  >Turkmenistan</option>
+
+
+                                                                                                                <option value="107"  >Uganda</option>
+
+
+                                                                                                                <option value="119"  >Ukraine</option>
+
+
+                                                                                                                <option value="23"  >United Arab Emirates</option>
+
+
+                                                                                                                <option value="108"  >United Kingdom</option>
+
+
+                                                                                                                <option value="114"  >USA</option>
+
+
+                                                                                                                <option value="109"  >Uzbekistan</option>
+
+
+                                                                                                                <option value="110"  >Venezuela</option>
+
+
+                                                                                                                <option value="180"  >Vietnam</option>
+
+
+                                                                                                                <option value="111"  >Yemen</option>
+
+
+                                                                                                                <option value="112"  >Zimbabwe</option>
+
+                                                </select>
+                                            </div>
+
+              <div class="form-group">
+                                                <select class="form-control" id="degree" autocomplete="off" name="degree" >
+                                                    <option value="" >Select degree level</option>
+                                                                                                            <option value="1570" >Pharm-D</option>
+                                                                                                            <option value="836" >Non-Matriculation</option>
+                                                                                                            <option value="838" >Matriculation/O-Level</option>
+                                                                                                            <option value="840" >Intermediate/A-Level</option>
+                                                                                                            <option value="369" >Bachelor</option>
+                                                                                                            <option value="373" >Master</option>
+                                                                                                            <option value="844" >MBBS/D-Pharm/BDS</option>
+                                                                                                            <option value="842" >M-Phill</option>
+                                                                                                            <option value="375" >PHD/Doctorate</option>
+                                                                                                            <option value="846" >Certification</option>
+                                                                                                            <option value="371" >Diploma</option>
+                                                                                                            <option value="1243" >Short Course</option>
+
+                                                </select>
+                                            </div>
+
+              <div class="form-group">
+                                                <select class="form-control" id="minExperience" name="minExperience" onchange="minimumExpValidate('no');
+                                                            jobMatchingCandidates('count');">
+                                                    <option value=""  id="minExpLabel">Min Experience</option>
+
+                                                                                                            <option value="713" >Fresh</option>
+                                                                                                            <option value="715" >Less than 1 Year</option>
+                                                                                                            <option value="717" >1 Year</option>
+                                                                                                            <option value="719" >2 Years</option>
+                                                                                                            <option value="721" >3 Years</option>
+                                                                                                            <option value="723" >4 Years</option>
+                                                                                                            <option value="725" >5 Years</option>
+                                                                                                            <option value="727" >6 Years</option>
+                                                                                                            <option value="729" >7 Years</option>
+                                                                                                            <option value="731" >8 Years</option>
+                                                                                                            <option value="733" >9 Years</option>
+                                                                                                            <option value="735" >10 Years</option>
+                                                                                                            <option value="737" >11 Years</option>
+                                                                                                            <option value="739" >12 Years</option>
+                                                                                                            <option value="741" >13 Years</option>
+                                                                                                            <option value="743" >14 Years</option>
+                                                                                                            <option value="745" >15 Years</option>
+                                                                                                            <option value="747" >16 Years</option>
+                                                                                                            <option value="749" >17 Years</option>
+                                                                                                            <option value="751" >18 Years</option>
+                                                                                                            <option value="753" >19 Years</option>
+                                                                                                            <option value="755" >20 Years</option>
+                                                                                                            <option value="757" >21 Years</option>
+                                                                                                            <option value="759" >22 Years</option>
+                                                                                                            <option value="761" >23 Years</option>
+                                                                                                            <option value="763" >24 Years</option>
+                                                                                                            <option value="765" >25 Years</option>
+                                                                                                            <option value="767" >26 Years</option>
+                                                                                                            <option value="769" >27 Years</option>
+                                                                                                            <option value="771" >28 Years</option>
+                                                                                                            <option value="773" >29 Years</option>
+                                                                                                            <option value="775" >30 Years</option>
+                                                                                                            <option value="777" >31 Years</option>
+                                                                                                            <option value="779" >32 Years</option>
+                                                                                                            <option value="781" >33 Years</option>
+                                                                                                            <option value="783" >34 Years</option>
+                                                                                                            <option value="785" >35 Years</option>
+                                                                                                            <option value="787" >More than 35 Years</option>
+
+
+                                                </select>
+
+                                        </div>
+              <div class="form-group">
+                                                <select class="form-control" id="maxExperience" name="maxExperience" onchange="mximumExpValidate('no');
+                                                            jobMatchingCandidates('count');">
+                                                    <option value=""  id="maxExpLabel">Max Experience</option>
+
+                                                                                                            <option value="713" >Fresh</option>
+                                                                                                            <option value="715" >Less than 1 Year</option>
+                                                                                                            <option value="717" >1 Year</option>
+                                                                                                            <option value="719" >2 Years</option>
+                                                                                                            <option value="721" >3 Years</option>
+                                                                                                            <option value="723" >4 Years</option>
+                                                                                                            <option value="725" >5 Years</option>
+                                                                                                            <option value="727" >6 Years</option>
+                                                                                                            <option value="729" >7 Years</option>
+                                                                                                            <option value="731" >8 Years</option>
+                                                                                                            <option value="733" >9 Years</option>
+                                                                                                            <option value="735" >10 Years</option>
+                                                                                                            <option value="737" >11 Years</option>
+                                                                                                            <option value="739" >12 Years</option>
+                                                                                                            <option value="741" >13 Years</option>
+                                                                                                            <option value="743" >14 Years</option>
+                                                                                                            <option value="745" >15 Years</option>
+                                                                                                            <option value="747" >16 Years</option>
+                                                                                                            <option value="749" >17 Years</option>
+                                                                                                            <option value="751" >18 Years</option>
+                                                                                                            <option value="753" >19 Years</option>
+                                                                                                            <option value="755" >20 Years</option>
+                                                                                                            <option value="757" >21 Years</option>
+                                                                                                            <option value="759" >22 Years</option>
+                                                                                                            <option value="761" >23 Years</option>
+                                                                                                            <option value="763" >24 Years</option>
+                                                                                                            <option value="765" >25 Years</option>
+                                                                                                            <option value="767" >26 Years</option>
+                                                                                                            <option value="769" >27 Years</option>
+                                                                                                            <option value="771" >28 Years</option>
+                                                                                                            <option value="773" >29 Years</option>
+                                                                                                            <option value="775" >30 Years</option>
+                                                                                                            <option value="777" >31 Years</option>
+                                                                                                            <option value="779" >32 Years</option>
+                                                                                                            <option value="781" >33 Years</option>
+                                                                                                            <option value="783" >34 Years</option>
+                                                                                                            <option value="785" >35 Years</option>
+                                                                                                            <option value="787" >More than 35 Years</option>
+
+
+                                                </select>
+
+                                        </div>
+
+              <div class="form-group">
+                                                <select class="form-control" id="minSallary" name="minSallary" >
+                                                    <option value="" id="minSalLbl">Sallary From</option>
+                                                                                                            <option value="5000" >5,000</option>
+                                                                                                            <option value="6000" >6,000</option>
+                                                                                                            <option value="7000" >7,000</option>
+                                                                                                            <option value="8000" >8,000</option>
+                                                                                                            <option value="9000" >9,000</option>
+                                                                                                            <option value="10000" >10,000</option>
+                                                                                                            <option value="11000" >11,000</option>
+                                                                                                            <option value="12000" >12,000</option>
+                                                                                                            <option value="13000" >13,000</option>
+                                                                                                            <option value="14000" >14,000</option>
+                                                                                                            <option value="15000" >15,000</option>
+                                                                                                            <option value="16000" >16,000</option>
+                                                                                                            <option value="17000" >17,000</option>
+                                                                                                            <option value="18000" >18,000</option>
+                                                                                                            <option value="19000" >19,000</option>
+                                                                                                            <option value="20000" >20,000</option>
+                                                                                                            <option value="25000" >25,000</option>
+                                                                                                            <option value="30000" >30,000</option>
+                                                                                                            <option value="35000" >35,000</option>
+                                                                                                            <option value="40000" >40,000</option>
+                                                                                                            <option value="45000" >45,000</option>
+                                                                                                            <option value="50000" >50,000</option>
+                                                                                                            <option value="60000" >60,000</option>
+                                                                                                            <option value="70000" >70,000</option>
+                                                                                                            <option value="80000" >80,000</option>
+                                                                                                            <option value="90000" >90,000</option>
+                                                                                                            <option value="100000" >100,000</option>
+                                                                                                            <option value="125000" >125,000</option>
+                                                                                                            <option value="150000" >150,000</option>
+                                                                                                            <option value="175000" >175,000</option>
+                                                                                                            <option value="200000" >200,000</option>
+                                                                                                            <option value="250000" >250,000</option>
+                                                                                                            <option value="300000" >300,000</option>
+                                                                                                            <option value="350000" >350,000</option>
+                                                                                                            <option value="400000" >400,000</option>
+                                                                                                            <option value="450000" >450,000</option>
+                                                                                                            <option value="500000" >500,000</option>
+                                                                                                            <option value="550000" >550,000</option>
+                                                                                                            <option value="600000" >600,000</option>
+                                                                                                            <option value="650000" >650,000</option>
+                                                                                                            <option value="700000" >700,000</option>
+                                                                                                            <option value="750000" >750,000</option>
+                                                                                                            <option value="800000" >800,000</option>
+                                                                                                            <option value="850000" >850,000</option>
+                                                                                                            <option value="900000" >900,000</option>
+                                                                                                            <option value="950000" >950,000</option>
+                                                                                                            <option value="1000000" >1,000,000</option>
+                                                                                                            <option value="1000001" >1,000,000+</option>
+
+                                                </select>
+
+                                        </div>
+
+              <div class="form-group">
+                                                <select class="form-control" id="maxSallary" name="maxSallary" >
+                                                    <option value="" id="maxSalLbl">Sallary To</option>
+                                                                                                            <option value="5000" >5,000</option>
+                                                                                                            <option value="6000" >6,000</option>
+                                                                                                            <option value="7000" >7,000</option>
+                                                                                                            <option value="8000" >8,000</option>
+                                                                                                            <option value="9000" >9,000</option>
+                                                                                                            <option value="10000" >10,000</option>
+                                                                                                            <option value="11000" >11,000</option>
+                                                                                                            <option value="12000" >12,000</option>
+                                                                                                            <option value="13000" >13,000</option>
+                                                                                                            <option value="14000" >14,000</option>
+                                                                                                            <option value="15000" >15,000</option>
+                                                                                                            <option value="16000" >16,000</option>
+                                                                                                            <option value="17000" >17,000</option>
+                                                                                                            <option value="18000" >18,000</option>
+                                                                                                            <option value="19000" >19,000</option>
+                                                                                                            <option value="20000" >20,000</option>
+                                                                                                            <option value="25000" >25,000</option>
+                                                                                                            <option value="30000" >30,000</option>
+                                                                                                            <option value="35000" >35,000</option>
+                                                                                                            <option value="40000" >40,000</option>
+                                                                                                            <option value="45000" >45,000</option>
+                                                                                                            <option value="50000" >50,000</option>
+                                                                                                            <option value="60000" >60,000</option>
+                                                                                                            <option value="70000" >70,000</option>
+                                                                                                            <option value="80000" >80,000</option>
+                                                                                                            <option value="90000" >90,000</option>
+                                                                                                            <option value="100000" >100,000</option>
+                                                                                                            <option value="125000" >125,000</option>
+                                                                                                            <option value="150000" >150,000</option>
+                                                                                                            <option value="175000" >175,000</option>
+                                                                                                            <option value="200000" >200,000</option>
+                                                                                                            <option value="250000" >250,000</option>
+                                                                                                            <option value="300000" >300,000</option>
+                                                                                                            <option value="350000" >350,000</option>
+                                                                                                            <option value="400000" >400,000</option>
+                                                                                                            <option value="450000" >450,000</option>
+                                                                                                            <option value="500000" >500,000</option>
+                                                                                                            <option value="550000" >550,000</option>
+                                                                                                            <option value="600000" >600,000</option>
+                                                                                                            <option value="650000" >650,000</option>
+                                                                                                            <option value="700000" >700,000</option>
+                                                                                                            <option value="750000" >750,000</option>
+                                                                                                            <option value="800000" >800,000</option>
+                                                                                                            <option value="850000" >850,000</option>
+                                                                                                            <option value="900000" >900,000</option>
+                                                                                                            <option value="950000" >950,000</option>
+                                                                                                            <option value="1000000" >1,000,000</option>
+                                                                                                            <option value="1000001" >1,000,000+</option>
+
+                                                </select>
+
+                                        </div>
+
+              <div class="form-group">
+                                               <select class="form-control" id="gender" name="gender" >
+                                                 <option value="" >Is there a gender preference for this job?</option>
+                                                 <option value="443" >
+                                                                Male
+                                                            </option>
+
+
+
+
+                                                            <option value="445" >
+                                                                Female
+                                                            </option>
+
+
+
+
+                                                            <option value="446" >
+                                                                Transgender
+                                                            </option>
+
+
+
+
+                                                            <option value="789" selected>
+                                                                No Preference
+                                                            </option>
+
+                                                </select>
+
+                                        </div>
+
+              <div class="form-group">
+                <input type="submit" value="POST" class="btn btn-primary py-3 px-5">
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+		<section class="ftco-section-parallax">
+      <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+              <h2>Subcribe to our Newsletter</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+              <div class="row d-flex justify-content-center mt-4 mb-4">
+                <div class="col-md-12">
+                  <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                      <input type="text" class="form-control" placeholder="Enter email address">
+                      <input type="submit" value="Subscribe" class="submit px-3">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+       <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+        	<div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Skills Based Employee Recommender System</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                <li class="ftco-animate"><a href="https://www.facebook.com/Skills-Based-Employee-Recommender-102958851182501/"><span class="icon-facebook"></span></a></li>
+                  <li class="ftco-animate"><a href=""><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Employee Recruiting Agency</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="pb-1 d-block">Browse Candidates</a></li>
+                <li><a href="#" class="pb-1 d-block">Post a Job</a></li>
+                <li><a href="#" class="pb-1 d-block">Job Seekers Listing</a></li>
+                <li><a href="#" class="pb-1 d-block">Resume Page</a></li>
+                <li><a href="#" class="pb-1 d-block">Dashboard</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2">Job Seekers</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="pb-1 d-block">Browse Jobs</a></li>
+                <li><a href="#" class="pb-1 d-block">Submit Resume</a></li>
+                <li><a href="#" class="pb-1 d-block">Dashboard</a></li>
+                <li><a href="#" class="pb-1 d-block">Update Resume</a></li>
+                <li><a href="#" class="pb-1 d-block">My Bookmarks</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2">Account</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="pb-1 d-block">My Account</a></li>
+                <li><a href="#" class="pb-1 d-block">Sign In</a></li>
+                <li><a href="#" class="pb-1 d-block">Create Account</a></li>
+                <li><a href="#" class="pb-1 d-block">Checkout</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>{%load static%}
+	                <li><span class="icon icon-map-marker"></span><span class="text">  University Of Gujrat(Hafiz Hayat Campus)</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+923144757507</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">kindghouri@gmail.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script src="{%static 'js/jquery.min.js'%}"></script>
+  <script src="{%static 'js/jquery-migrate-3.0.1.min.js'%}"></script>
+  <script src="{%static 'js/popper.min.js'%}"></script>
+  <script src="{%static 'js/bootstrap.min.js'%}"></script>
+  <script src="{%static 'js/jquery.easing.1.3.js'%}"></script>
+  <script src="{%static 'js/jquery.waypoints.min.js'%}"></script>
+  <script src="{%static 'js/jquery.stellar.min.js'%}"></script>
+  <script src="{%static 'js/owl.carousel.min.js'%}"></script>
+  <script src="{%static 'js/jquery.magnific-popup.min.js'%}"></script>
+  <script src="{%static 'js/aos.js'%}"></script>
+  <script src="{%static 'js/jquery.animateNumber.min.js'%}"></script>
+  <script src="{%static 'js/scrollax.min.js'%}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{%static 'js/google-map.js'%}"></script>
+  <script src="{%static 'js/main.js'%}"></script>
+  </body>
+</html>
