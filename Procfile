@@ -1,1 +1,1 @@
-"web: gunicorn fypproject.wsgi" 
+web: gunicorn fypproject.wsgi --log-file - 
