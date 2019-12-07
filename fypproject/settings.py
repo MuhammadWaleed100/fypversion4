@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '+v-fdmvepu-eo9uao$t_6ki+f**&!q-5$u3jb88ckve_cc20s='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['fypprojectt.herokuapp.com','127.0.0.1']
 
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['fypprojectt.herokuapp.com','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -142,6 +143,7 @@ import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 DATABASES['default']['CONN_MAX_AGE'] = 500
+
 
 
 PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
