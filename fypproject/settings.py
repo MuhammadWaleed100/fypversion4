@@ -135,3 +135,8 @@ EMAIL_HOST_USER = 'skills.based.recommender@gmail.com'
 EMAIL_HOST_PASSWORD = '158127108105'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500

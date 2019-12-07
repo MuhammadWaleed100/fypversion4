@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-{% load static %}
+{%load static%}
 <html lang="en">
-  <head>
+<head>
     <title>Skills Based Employee Recommender System</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,39 +26,12 @@
     <link rel="stylesheet" href="{%static 'css/flaticon.css'%}">
     <link rel="stylesheet" href="{%static 'css/icomoon.css'%}">
     <link rel="stylesheet" href="{%static 'css/style.css'%}">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-     <script>
-    $(document).ready(function() {
-    $('#submit').click(function(event){
-
-        data = $('#pas').val();
-        var len = data.length;
-
-        if(len < 1) {
-            alert("Password cannot be blank");
-            // Prevent form submission
-            event.preventDefault();
-        }
-
-        if($('#pas').val() != $('#pas2').val()) {
-            alert("Password and Confirm Password don't match");
-            // Prevent form submission
-            event.preventDefault();
-        }
+</head>
+<body>
 
 
-    });
-});
-    </script>
 
-
-  </head>
-  <body>
-
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container-fluid px-md-4	">
 	      <a class="navbar-brand" href="/">Skills Based Employee Recommender System</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,51 +51,41 @@
 	  </nav>
     <!-- END nav -->
 
-    <div class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+
+<div class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-start">
           <div class="col-md-12 ftco-animate text-center mb-5">
-          	<p class="breadcrumbs mb-0"><span class="mr-3"><a href="base.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>sign up</span></p>
-            <h1 class="mb-3 bread">Sign up</h1>
+          	<p class="breadcrumbs mb-0"><span class="mr-3"><a href="base.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Confirm Email</span></p>
+            <h1 class="mb-3 bread">Confirm Email</h1>
           </div>
         </div>
       </div>
     </div>
 
-		<section class="ftco-section contact-section bg-light">
-      <div class="container" >
+
+<section class="ftco-section contact-section bg-light">
+      <div class="container">
         <div class="row block-9">
           <div class="col-md-6 order-md-last d-flex"  style="margin-left:25%">
-            <form action="http://127.0.0.1:8000/confirmm/" class="bg-white p-5 contact-form" method='post' id="signup">
-              {% csrf_token %}
+<form method="post" action="http://127.0.0.1:8000/register/"  class="bg-white p-5 contact-form">
+    {%csrf_token%}
+
+    <h4 style="color: #c82333">{{error}}</h4>
               <div class="form-group">
-                <input type="text" class="form-control" required placeholder="Your Name" name="uname">
+                <input type="text" class="form-control" placeholder="Enter Verification Code"  id="con" name="con">
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Your Email" required name="em">
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" required name="pas" id="pas">
-              </div>
-                <div class="form-group">
-                <input type="password" class="form-control" placeholder="Confirm Password" required name="pas2" id="pas2">
-              </div>
-                <label class="container">
-                  <input type="radio" checked="checked" name="rad" id="ERA" value="ERA" required>
-                    Employee Recruiting Agency
-                  <span class="checkmark"></span>
-                </label>
-                <label class="container">
-                  <input type="radio" name="rad" id="JS" value="JS">
-                    Job Seeker
-                  <span class="checkmark"></span>
-                </label>
-              <div class="form-group">
-                <input type="submit" id="submit" value="Sign up" class="btn btn-primary py-3 px-5" >
-                <span class="mr-3" style="margin-left:22.5%;"><a href="http://127.0.0.1:8000/login/">Already have an account..!</a></span>
+                <input type="submit" value="Submit Code" class="btn btn-primary py-3 px-5">
               </div>
 
+				<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+                <a href="http://127.0.0.1:8000/signup/">Go back</a>
+				</div>
+
+			</div>
             </form>
 
           </div>
@@ -133,7 +96,8 @@
 
 
 
-    <section class="ftco-section services-section" style="margin-top:-7%">
+
+<section class="ftco-section services-section" style="margin-top:-7%">
       <div class="container">
         <div class="row d-flex">
           <div class="col-md-3 d-flex align-self-stretch ftco-animate">
@@ -327,5 +291,6 @@
   <script src="{%static 'js/google-map.js'%}"></script>
   <script src="{%static 'js/main.js'%}"></script>
 
-  </body>
+
+</body>
 </html>
